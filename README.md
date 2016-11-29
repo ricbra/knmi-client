@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/ricbra/knmi-client/v/stable)](https://packagist.org/packages/ricbra/knmi-client)
+[![Build status](https://travis-ci.org/ricbra/knmi-client.svg?branch=master)](https://travis-ci.org/ricbra/knmi-client)
+
 # KNMI client
 
 This repository contains a very simplistic PHP client for the KNMI [hourly](http://projects.knmi.nl/klimatologie/uurgegevens/selectie.cgi) 
