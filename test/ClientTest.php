@@ -1,0 +1,113 @@
+<?php
+
+namespace Test\Ricbra\Knmi;
+
+use GuzzleHttp\Client as GuzzleClient;
+use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
+use Http\Mock\Client as MockClient;
+use Ricbra\Knmi\Client;
+
+class ClientTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @test
+     */
+    public function it_calls_knmi_with_correct_params()
+    {
+        $mockClient = new MockClient();
+        $client = new Client($mockClient);
+        $client->getDaily(
+            new \DateTime('2016-01-01'),
+            new \DateTime('2016-01-05'),
+            ['240', '375'],
+            ['PX', 'PN']
+        );
+
+        $request = $mockClient->getRequests()[0];
+
+        $this->assertSame(
+            'start=20160101&end=20160105&stns=240%3A375&vars=PX%3APN',
+            $request->getBody()->getContents()
+        );
+
+        $this->assertSame(
+            'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi',
+            (string)$request->getUri()
+        );
+
+        $this->assertSame(
+            'POST',
+            $request->getMethod()
+        );
+    }
+
+    /**
+     * @group integration
+     * @test
+     */
+    public function it_correctly_calls_and_parses_knmi_daily_response()
+    {
+        $guzzleClient = new GuzzleClient();
+        $guzzleAdapter = new GuzzleAdapter($guzzleClient);
+        $client = new Client($guzzleAdapter);
+        $response = $client->getDaily(
+            new \DateTime('2016-01-01'),
+            new \DateTime('2016-01-01'),
+            ['240'],
+            ['PX', 'PN']
+        );
+
+
+        $this->assertSame([
+            'date'    => '2016-01-01',
+            'station' =>
+                [
+                    'number' => '240',
+                    'lng'    => '4.790',
+                    'lat'    => '52.318',
+                    'alt'    => '-3.30',
+                    'name'   => 'SCHIPHOL',
+                ],
+            'data'    =>
+                [
+                    'PX' => '10251',
+                    'PN' => '10146',
+                ],
+        ], $response[0]);
+    }
+
+    /**
+     * @group integration
+     * @test
+     */
+    public function it_correctly_calls_and_parses_knmi_hourly_response()
+    {
+        $guzzleClient = new GuzzleClient();
+        $guzzleAdapter = new GuzzleAdapter($guzzleClient);
+        $client = new Client($guzzleAdapter);
+        $response = $client->getHourly(
+            new \DateTime('2016-01-01 12:00'),
+            new \DateTime('2016-01-01 13:00'),
+            ['240'],
+            ['P']
+        );
+        print_r($response);
+
+//        $this->assertSame([
+//            'date'    => '2016-01-01',
+//            'station' =>
+//                [
+//                    'number' => '240',
+//                    'lng'    => '4.790',
+//                    'lat'    => '52.318',
+//                    'alt'    => '-3.30',
+//                    'name'   => 'SCHIPHOL',
+//                ],
+//            'data'    =>
+//                [
+//                    'PX' => '10251',
+//                    'PN' => '10146',
+//                ],
+//        ], $response[0]);
+    }
+}

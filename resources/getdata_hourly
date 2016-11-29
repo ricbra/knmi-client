@@ -1,0 +1,15 @@
+# BRON: KONINKLIJK NEDERLANDS METEOROLOGISCH INSTITUUT (KNMI)
+# Opmerking: door stationsverplaatsingen en veranderingen in waarneemmethodieken zijn deze tijdreeksen van uurwaarden mogelijk inhomogeen! Dat betekent dat deze reeks van gemeten waarden niet geschikt is voor trendanalyse. Voor studies naar klimaatverandering verwijzen we naar de gehomogeniseerde reeks maandtemperaturen van De Bilt <http://www.knmi.nl/klimatologie/onderzoeksgegevens/homogeen_260/index.html> of de Centraal Nederland Temperatuur <http://www.knmi.nl/klimatologie/onderzoeksgegevens/CNT/>.
+#
+#
+# STN      LON(east)   LAT(north)     ALT(m)  NAME
+# 240:         4.774       52.301      -4.40  SCHIPHOL
+#
+# YYYYMMDD = datum (YYYY=jaar,MM=maand,DD=dag);
+# HH       = tijd (HH=uur, UT.12 UT=13 MET, 14 MEZT. Uurvak 05 loopt van 04.00 UT tot 5.00 UT;
+# P        = Luchtdruk (in 0.1 hPa) herleid naar zeeniveau, tijdens de waarneming;
+#
+# STN,YYYYMMDD,   HH,    P
+#
+  240,20160101,   12,10242
+  240,20160101,   13,10236
