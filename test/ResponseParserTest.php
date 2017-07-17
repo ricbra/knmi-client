@@ -86,4 +86,21 @@ class ResponseParserTest extends TestCase
             $parsed
         );
     }
+
+    /**
+     * @test
+     */
+    public function it_parses_station_names_with_special_characters()
+    {
+        $response = file_get_contents(__DIR__ . '/../resources/getdata_dag_special_characters_name');
+
+        $parser = new ResponseParser();
+        $parsed = $parser->parse($response);
+
+        $this->assertSame(
+            "R'DAM-GEULHAVEN",
+            $parsed[0]['station']['name']
+        );
+    }
+
 }
