@@ -7,8 +7,9 @@ use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Mock\Client as MockClient;
 use Ricbra\Knmi\Client;
+use PHPUnit\Framework\TestCase;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     /**
      * @test
@@ -29,14 +30,14 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client->getDaily(
             new \DateTime('2016-01-01'),
             new \DateTime('2016-01-05'),
-            ['240', '375'],
+            ['240', '375', '343'],
             ['PX', 'PN']
         );
 
         $request = $mockClient->getRequests()[0];
 
         $this->assertSame(
-            'start=20160101&end=20160105&stns=240%3A375&vars=PX%3APN',
+            'start=20160101&end=20160105&stns=240%3A375%3A343&vars=PX%3APN',
             $request->getBody()->getContents()
         );
 
@@ -67,6 +68,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['PX', 'PN']
         );
 
+        var_dump($response);
 
         $this->assertSame([
             'date'    => '2016-01-01',
@@ -108,9 +110,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                     'station'  =>
                         [
                             'number' => '240',
-                            'lng'    => '4.774',
-                            'lat'    => '52.301',
-                            'alt'    => '-4.40',
+                            'lng'    => '4.790',
+                            'lat'    => '52.318',
+                            'alt'    => '-3.30',
                             'name'   => 'SCHIPHOL',
                         ],
                     'data'     =>
@@ -123,9 +125,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                     'station'  =>
                         [
                             'number' => '240',
-                            'lng'    => '4.774',
-                            'lat'    => '52.301',
-                            'alt'    => '-4.40',
+                            'lng'    => '4.790',
+                            'lat'    => '52.318',
+                            'alt'    => '-3.30',
                             'name'   => 'SCHIPHOL',
                         ],
                     'data'     =>
@@ -135,6 +137,26 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                 ],
             ],
             $response
+        );
+    }
+    /**
+     * @group integration
+     * @test
+     */
+    public function it_correctly_calls_and_parses_station_names_with_specia_characters()
+    {
+        $guzzleClient = new GuzzleClient();
+        $guzzleAdapter = new GuzzleAdapter($guzzleClient);
+        $client = new Client($guzzleAdapter);
+        $response = $client->getHourly(
+            new \DateTime('2016-01-01 12:00'),
+            new \DateTime('2016-01-01 13:00'),
+            ['343'],
+            ['P']
+        );
+        $this->assertSame(
+            "R'DAM-GEULHAVEN",
+            $response[0]['station']['name']
         );
     }
 }
