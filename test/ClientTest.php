@@ -7,8 +7,9 @@ use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Mock\Client as MockClient;
 use Ricbra\Knmi\Client;
+use PHPUnit\Framework\TestCase;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     /**
      * @test
