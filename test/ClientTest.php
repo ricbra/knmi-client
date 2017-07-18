@@ -68,8 +68,6 @@ class ClientTest extends TestCase
             ['PX', 'PN']
         );
 
-        var_dump($response);
-
         $this->assertSame([
             'date'    => '2016-01-01',
             'station' =>
@@ -98,8 +96,10 @@ class ClientTest extends TestCase
         $guzzleAdapter = new GuzzleAdapter($guzzleClient);
         $client = new Client($guzzleAdapter);
         $response = $client->getHourly(
-            new \DateTime('2016-01-01 12:00'),
-            new \DateTime('2016-01-01 13:00'),
+            new \DateTime('2016-01-01'),
+            new \DateTime('2016-01-01'),
+            12,
+            13,
             ['240'],
             ['P']
         );
@@ -149,8 +149,10 @@ class ClientTest extends TestCase
         $guzzleAdapter = new GuzzleAdapter($guzzleClient);
         $client = new Client($guzzleAdapter);
         $response = $client->getHourly(
-            new \DateTime('2016-01-01 12:00'),
-            new \DateTime('2016-01-01 13:00'),
+            new \DateTime('2016-01-01'),
+            new \DateTime('2016-01-01'),
+            12,
+            13,
             ['343'],
             ['P']
         );
