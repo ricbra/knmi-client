@@ -5,7 +5,7 @@ namespace Test\Ricbra\Knmi;
 use Ricbra\Knmi\ResponseParser;
 use PHPUnit\Framework\TestCase;
 
-class ResponseParserTest extends TestCase
+class ResponseParserTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -102,5 +102,4 @@ class ResponseParserTest extends TestCase
             $parsed[0]['station']['name']
         );
     }
-
 }

@@ -9,7 +9,7 @@ use Http\Mock\Client as MockClient;
 use Ricbra\Knmi\Client;
 use PHPUnit\Framework\TestCase;
 
-class ClientTest extends TestCase
+class ClientTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -143,7 +143,7 @@ class ClientTest extends TestCase
      * @group integration
      * @test
      */
-    public function it_correctly_calls_and_parses_station_names_with_specia_characters()
+    public function it_correctly_calls_and_parses_station_names_with_special_characters()
     {
         $guzzleClient = new GuzzleClient();
         $guzzleAdapter = new GuzzleAdapter($guzzleClient);
