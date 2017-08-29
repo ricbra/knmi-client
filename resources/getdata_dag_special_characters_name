@@ -1,0 +1,14 @@
+# BRON: KONINKLIJK NEDERLANDS METEOROLOGISCH INSTITUUT (KNMI)
+# Opmerking: door stationsverplaatsingen en veranderingen in waarneemmethodieken zijn deze tijdreeksen van dagwaarden mogelijk inhomogeen! Dat betekent dat deze reeks van gemeten waarden niet geschikt is voor trendanalyse. Voor studies naar klimaatverandering verwijzen we naar de gehomogeniseerde reeks maandtemperaturen van De Bilt <http://www.knmi.nl/kennis-en-datacentrum/achtergrond/gehomogeniseerde-reeks-maandtemperaturen-de-bilt> of de Centraal Nederland Temperatuur <http://www.knmi.nl/kennis-en-datacentrum/achtergrond/centraal-nederland-temperatuur-cnt>.
+# 
+# 
+# STN      LON(east)   LAT(north)     ALT(m)  NAME
+# 343:         4.313       51.893       3.50  R'DAM-GEULHAVEN
+# 
+# YYYYMMDD = Date (YYYY=year MM=month DD=day); 
+# PX       = Maximum hourly sea level pressure (in 0.1 hPa); 
+# PN       = Minimum hourly sea level pressure (in 0.1 hPa); 
+# 
+# STN,YYYYMMDD,   PX,   PN
+# 
+  343,20011001,10039,   24,   10

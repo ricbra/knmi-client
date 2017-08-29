@@ -36,12 +36,16 @@ class Client
         return (new ResponseParser())->parse($this->httpClient->sendRequest($request)->getBody()->getContents());
     }
 
-    public function getHourly(\DateTime $start, \DateTime $end, array $stations, array $vars) : array
+    public function getHourly(\DateTime $start, \DateTime $end, $timeframeStart, $timeframeEnd, array $stations, array $vars) : array
     {
+
+        $start = $start->format('Ymd') . sprintf("%02d", $timeframeStart);
+        $end = $end->format('Ymd') . sprintf("%02d", $timeframeEnd);
+
         $factory = MessageFactoryDiscovery::find();
         $params = [
-            'start' => $start->format('YmdH'),
-            'end' => $end->format('YmdH'),
+            'start' => $start,
+            'end' => $end,
             'stns' => implode(':', $stations),
             'vars' => implode(':', $vars)
         ];
