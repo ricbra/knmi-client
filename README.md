@@ -3,8 +3,8 @@
 
 # KNMI client
 
-This repository contains a very simplistic PHP client for the KNMI [hourly](http://projects.knmi.nl/klimatologie/uurgegevens/selectie.cgi) 
-and [daily](http://www.knmi.nl/nederland-nu/klimatologie/daggegevens) endpoints. The response from KNMI is rather
+This repository contains a very simplistic PHP client for the KNMI [hourly](https://www.daggegevens.knmi.nl/klimatologie/uurgegevens) 
+and [daily](https://www.daggegevens.knmi.nl/klimatologie/daggegevens) endpoints. The response from KNMI is rather
 unsuable and this client returns a nice formatted array. Not the best you can get, but better than the original.
 
 ## Installation

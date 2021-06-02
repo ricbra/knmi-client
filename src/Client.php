@@ -26,7 +26,7 @@ class Client
         ];
         $request = $factory->createRequest(
             'POST',
-            'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi',
+            'https://www.daggegevens.knmi.nl/klimatologie/daggegevens',
             [
                 'Content-Type' => 'application/x-www-form-urlencoded'
             ],
@@ -51,7 +51,7 @@ class Client
         ];
         $request = $factory->createRequest(
             'POST',
-            'http://projects.knmi.nl/klimatologie/uurgegevens/getdata_uur.cgi',
+            'https://www.daggegevens.knmi.nl/klimatologie/uurgegevens',
             [
                 'Content-Type' => 'application/x-www-form-urlencoded'
             ],

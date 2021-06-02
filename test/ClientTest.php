@@ -41,7 +41,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(
-            'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi',
+            'https://www.daggegevens.knmi.nl/klimatologie/daggegevens',
             (string)$request->getUri()
         );
 
@@ -75,7 +75,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                     'lng'    => '4.790',
                     'lat'    => '52.318',
                     'alt'    => '-3.30',
-                    'name'   => 'SCHIPHOL',
+                    'name'   => 'Schiphol',
                 ],
             'data'    =>
                 [
@@ -105,32 +105,34 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(
             [
                 [
-                    'datetime' => '2016-01-01T12:00:00+0100',
+                    'date' => '2016-01-01',
                     'station'  =>
                         [
                             'number' => '240',
                             'lng'    => '4.790',
                             'lat'    => '52.318',
                             'alt'    => '-3.30',
-                            'name'   => 'SCHIPHOL',
+                            'name'   => 'Schiphol',
                         ],
                     'data'     =>
                         [
+                            'H' => '12',
                             'P' => '10242',
                         ],
                 ],
                 [
-                    'datetime' => '2016-01-01T13:00:00+0100',
+                    'date' => '2016-01-01',
                     'station'  =>
                         [
                             'number' => '240',
                             'lng'    => '4.790',
                             'lat'    => '52.318',
                             'alt'    => '-3.30',
-                            'name'   => 'SCHIPHOL',
+                            'name'   => 'Schiphol',
                         ],
                     'data'     =>
                         [
+                            'H' => '13',
                             'P' => '10236',
                         ],
                 ],
@@ -156,7 +158,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['P']
         );
         $this->assertSame(
-            "R'DAM-GEULHAVEN",
+            "Gilze-Rijen",
             $response[0]['station']['name']
         );
     }
