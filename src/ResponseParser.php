@@ -6,7 +6,7 @@ use Ricbra\Knmi\Exception\NoParamsFound;
 
 class ResponseParser
 {
-    const HOURLY_RESPONSE = 'HH       = tijd';
+    const HOURLY_RESPONSE = 'YYYYMMDD,H';
 
     public function parse(string $body) : array
     {

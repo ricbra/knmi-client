@@ -52,7 +52,7 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(
             [
                 [
-                    'date' => '2016-01-01',
+                    'datetime' => '2016-01-01T12:00:00+0100',
                     'station'  =>
                         [
                             'number' => '240',
@@ -63,12 +63,11 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
                         ],
                     'data'     =>
                         [
-                            'H' => '12',
                             'P' => '10242',
                         ],
                 ],
                 [
-                    'date' => '2016-01-01',
+                    'datetime' => '2016-01-01T13:00:00+0100',
                     'station'  =>
                         [
                             'number' => '240',
@@ -79,7 +78,6 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
                         ],
                     'data'     =>
                         [
-                            'H' => '13',
                             'P' => '10236',
                         ],
                 ],
