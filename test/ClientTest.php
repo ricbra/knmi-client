@@ -41,7 +41,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(
-            'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi',
+            'https://www.daggegevens.knmi.nl/klimatologie/daggegevens',
             (string)$request->getUri()
         );
 
@@ -75,7 +75,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                     'lng'    => '4.790',
                     'lat'    => '52.318',
                     'alt'    => '-3.30',
-                    'name'   => 'SCHIPHOL',
+                    'name'   => 'Schiphol',
                 ],
             'data'    =>
                 [
@@ -112,7 +112,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                             'lng'    => '4.790',
                             'lat'    => '52.318',
                             'alt'    => '-3.30',
-                            'name'   => 'SCHIPHOL',
+                            'name'   => 'Schiphol',
                         ],
                     'data'     =>
                         [
@@ -127,7 +127,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                             'lng'    => '4.790',
                             'lat'    => '52.318',
                             'alt'    => '-3.30',
-                            'name'   => 'SCHIPHOL',
+                            'name'   => 'Schiphol',
                         ],
                     'data'     =>
                         [
@@ -156,7 +156,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['P']
         );
         $this->assertSame(
-            "R'DAM-GEULHAVEN",
+            "Gilze-Rijen",
             $response[0]['station']['name']
         );
     }

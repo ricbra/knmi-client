@@ -26,7 +26,7 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
                             'lng'    => '4.781',
                             'lat'    => '52.928',
                             'alt'    => '1.20',
-                            'name'   => 'DE KOOY',
+                            'name'   => 'De Kooy',
                         ],
                     'data'    =>
                         [
@@ -56,10 +56,10 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
                     'station'  =>
                         [
                             'number' => '240',
-                            'lng'    => '4.774',
-                            'lat'    => '52.301',
-                            'alt'    => '-4.40',
-                            'name'   => 'SCHIPHOL',
+                            'lng'    => '4.790',
+                            'lat'    => '52.318',
+                            'alt'    => '-3.30',
+                            'name'   => 'Schiphol',
                         ],
                     'data'     =>
                         [
@@ -71,10 +71,10 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
                     'station'  =>
                         [
                             'number' => '240',
-                            'lng'    => '4.774',
-                            'lat'    => '52.301',
-                            'alt'    => '-4.40',
-                            'name'   => 'SCHIPHOL',
+                            'lng'    => '4.790',
+                            'lat'    => '52.318',
+                            'alt'    => '-3.30',
+                            'name'   => 'Schiphol',
                         ],
                     'data'     =>
                         [
@@ -97,7 +97,7 @@ class ResponseParserTest extends \PHPUnit_Framework_TestCase
         $parsed = $parser->parse($response);
 
         $this->assertSame(
-            "R'DAM-GEULHAVEN",
+            "Gilze-Rijen",
             $parsed[0]['station']['name']
         );
     }

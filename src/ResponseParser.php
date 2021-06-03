@@ -6,7 +6,7 @@ use Ricbra\Knmi\Exception\NoParamsFound;
 
 class ResponseParser
 {
-    const HOURLY_RESPONSE = 'HH       = tijd';
+    const HOURLY_RESPONSE = 'YYYYMMDD,H';
 
     public function parse(string $body) : array
     {
@@ -60,7 +60,7 @@ class ResponseParser
 
         foreach ($lines as $line) {
             if (preg_match(
-                "/# ([0-9]{3}):\s+([0-9]+.[0-9]+)\s+([0-9]+.[0-9]+)\s+(-?[0-9]+.[0-9]+)\s+([(?=.*\w)^(\w|')^(\w|\-)+$\s\(\)]+)/",
+                "/# ([0-9]{3})\s+([0-9]+.[0-9]+)\s+([0-9]+.[0-9]+)\s+(-?[0-9]+.[0-9]+)\s+([(?=.*\w)^(\w|')^(\w|\-)+$\s\(\)]+)/",
                 $line,
                 $matches
             )) {
